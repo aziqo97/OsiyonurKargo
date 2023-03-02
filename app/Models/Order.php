@@ -16,4 +16,8 @@ class Order extends Model
         'updated_at',
     ];
     protected $table = 'order';
+    public function xolat()
+    {
+        return $this->belongsToMany(xolat::class);
+    }
 }

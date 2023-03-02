@@ -9,19 +9,13 @@
 
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Kategoriya qo'shish menyusi</h3>
+                            <h3 class="card-title">{{ $order->shtrix }} shtrix raqam xolatini o'zgartirish</h3>
                         </div>
 
 
-                        <form action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="/admin/edit/{{ $order->id }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Buyurtma shtrix kodi</label>
-                                    <input type="text" name="shtrix" class="form-control"
-                                           placeholder="Buyurtma shtrix kodi">
-
-                                </div>
                                 <div class="form-group">
                                     <label for="exampleInputPrice">Kategoriyani tanlang</label>
                                     <select class="form-control custom__form-control" name="category">

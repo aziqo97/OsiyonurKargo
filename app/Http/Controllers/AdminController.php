@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\xolat;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
@@ -25,8 +26,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-
-         return view('admin.addnewproduct');
+        $xolat = xolat::all();
+         return view('admin.addnewproduct', compact('xolat'));
     }
 
     /**
@@ -39,7 +40,7 @@ class AdminController extends Controller
     {
           $Order = Order::create([
                 'shtrix' => $request->shtrix,
-                'xolat' => $request->xolat,
+                'xolat' => $request->category,
             ]);
           return back();
     }

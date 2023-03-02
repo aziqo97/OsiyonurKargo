@@ -100,7 +100,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/admin/stat" class="nav-link">
+            <a href="/admin/" class="nav-link">
               <i class="nav-icon fas fa-align-right"></i>
               <p>
                 Statistika

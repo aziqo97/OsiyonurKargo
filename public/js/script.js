@@ -1,4 +1,4 @@
-theUrl = "https://tez-tez.uz/check-code/"
+theUrl = "/check-code/"
 var btn = document.querySelector("#send__btn")
 var reset_btn1 = document.querySelector("#reset__btn1")
 var reset_btn2 = document.querySelector("#reset__btn2")
@@ -20,12 +20,15 @@ const shCode = "12345"
 const date = "11.01.2023"
 
 btn.onclick = function checkCode() {
+
   $.get(`${theUrl}?code=${shtrix.value}`, function(data, status){
-    if (data['success'] == true) {
-      codeSucces(data['data'])
+       const datas  = JSON.parse(data);
+    if (datas['success'] == true) {
+      codeSucces(datas['data'])
     }
     else {
-        if (data['success'] == false) {
+
+        if (datas['success'] == false) {
           codeError()
         }
         if (shtrix.value === "") {
@@ -61,9 +64,9 @@ function codeSucces(code, status) {
   } else if (code['action'] == 4) {
     sp.textContent = ` `
     if (code['mail_code'] == '0') {
-      h2.textContent = `Sizning buyurtmangiz kimniki bo'limida ${code['whois']}`
+      h2.textContent = `Sizning buyurtmangiz kimniki bo'limida`
     } else {
-      h2.textContent = `Sizning buyurtmangiz kimniki bo'limida ${code['whois']}`
+      h2.textContent = `Sizning buyurtmangiz kimniki bo'limida`
     }
   }
 

@@ -54,7 +54,7 @@
                                             <td>{{ $orders->shtrix }}</td>
                                             <td>{{ $orders->xolat }}</td>
                                             <td>{{ $orders->updated_at }}</td>
-                                            <td>ochir</td>
+                                            <td><a href="/admin/destroy/{{ $orders->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>/<a href="/admin/edit/{{ $orders->id }}"><i class="fas fa-edit"></i></a></td>
                                         </tr>
                                         @endforeach
                                         </tbody>

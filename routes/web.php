@@ -16,10 +16,11 @@ use App\Http\Controllers\ForAllController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  [ForAllController::class, 'index']);
 Route::get('/check-code/', [ForAllController::class, 'check']);
+Route::get('/admin/destroy/{id}', [ForAllController::class, 'destroy'])->middleware('admin');
+Route::get('/admin/edit/{id}', [ForAllController::class, 'edit'])->middleware('admin');
+Route::post('/admin/edit/{id}', [ForAllController::class, 'editpost'])->middleware('admin');
 Route::resource('/admin', AdminController::class)->middleware('admin');
 
 Auth::routes();
